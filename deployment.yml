@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: getway
+  namespace: pitstop
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: getway
+  template:
+    metadata:
+      labels:
+        app: getway
+    spec:
+      containers:
+        - name: getway
+          image: registry.gitlab.com/aya5015049/pitstop_getway1/main:c0f0fe07
+          ports:
+            - containerPort: 80
