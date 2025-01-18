@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: getway-argo-application
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://gitlab.com/aya5015049/volet2_getway1.git  # L'URL de votre repository
+    targetRevision: HEAD
+    path: .  # Point vers la racine du repository, où se trouvent vos fichiers .yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: pitstop
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    
+    automated:
+      selfHeal: true
+      prune: true
