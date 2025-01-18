@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: getway
-          image: registry.gitlab.com/aya5015049/pitstop_getway1/main:c0f0fe07
+          image: registry.gitlab.com/aya5015049/pitstop_getway1/main:14b5af04
           ports:
             - containerPort: 80
